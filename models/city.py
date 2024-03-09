@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Creating: City class """
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
