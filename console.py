@@ -149,7 +149,13 @@ class HBNBCommand(cmd.Cmd):
         if not self.isValid(argV, 1):
             return
 
-        newModel = BaseModel()
+        if argV[0] == "BaseModel":
+            newModel = BaseModel()
+        elif argV[0] == "User":
+            newModel = User()
+        else:
+            print("** class doesn't exist **")
+            return
         newModel.save()
         print(newModel.id)
 
@@ -201,7 +207,7 @@ class HBNBCommand(cmd.Cmd):
         if not argValue:
             print([str(obj) for obj in objDict.v()])
             return
-        if argValue not in BaseModel.__name__:
+        if argValue not in BaseModel.__name__ and argValue not in User.__name__:
             print("** class doesn't exist **")
             return
 
