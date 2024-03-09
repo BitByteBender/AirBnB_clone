@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         if (not argValue):
             print("** class name missing **")
             return (False)
-        if (argValue[0] not in BaseModel.__name__):
+        if (argValue[0] not in ['BaseModel', 'User']):
             print("** class doesn't exist **")
             return (False)
         if (len(argValue) < argCount):
@@ -207,7 +207,7 @@ class HBNBCommand(cmd.Cmd):
         if not argValue:
             print([str(obj) for obj in objDict.v()])
             return
-        if argValue not in BaseModel.__name__ and argValue not in User.__name__:
+        if argValue not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
 
@@ -230,7 +230,7 @@ class HBNBCommand(cmd.Cmd):
         objDict = storage.all()
         if (objK in objDict):
             obj = objDict[objK]
-            setattr(obj, argV[2], argV[3].strip('"'))
+            setattr(obj, argV[2], argV[3])
             obj.save()
         else:
             print("** no instance found**")
