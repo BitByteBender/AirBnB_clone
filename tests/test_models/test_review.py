@@ -6,19 +6,23 @@ from models.base_model import BaseModel
 
 
 class TestReview(unittest.TestCase):
+    """ Testing Review class """
     def testing_attrs(self):
+        """ Testing all required attrs """
         rv = Review()
         self.assertTrue(hasattr(rv, "place_id"))
         self.assertTrue(hasattr(rv, "user_id"))
         self.assertTrue(hasattr(rv, "text"))
 
     def testing_attr_vals(self):
+        """ Testing attr values """
         rv = Review()
         self.assertEqual(rv.place_id, "")
         self.assertEqual(rv.user_id, "")
         self.assertEqual(rv.text, "")
 
     def testing_attrs(self):
+        """ Testing attrs params """
         rv = Review()
         rv.place_id = "895"
         rv.user_id = "1521"
@@ -28,6 +32,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(rv.text, "Wonderful place for vacation!")
 
     def testing_to_dict_method(self):
+        """ Testing the to_dict() method """
         rv = Review()
         rv.place_id = "995"
         rv.user_id = "3656"
@@ -40,6 +45,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(rvDict["text"], "Dreamland isn't it!")
 
     def testing_BM_inheritance_from(self):
+        """ Testing inheritance from BaseModel class """
         self.assertTrue(issubclass(Review, BaseModel))
 
 

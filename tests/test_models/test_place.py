@@ -6,7 +6,9 @@ from models.base_model import BaseModel
 
 
 class TestPlace(unittest.TestCase):
+    """ Test cases for Place class """
     def testing_attrs(self):
+        """ Testing if Place class its attrs """
         plc = Place()
         self.assertTrue(hasattr(plc, "city_id"))
         self.assertTrue(hasattr(plc, "user_id"))
@@ -21,6 +23,7 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(plc, "amenity_ids"))
 
     def testing_attr_vals(self):
+        """ Testing inits attr values"""
         plc = Place()
         self.assertEqual(plc.city_id, "")
         self.assertEqual(plc.user_id, "")
@@ -35,6 +38,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(plc.amenity_ids, [])
 
     def testing_attrs(self):
+        """ Testing attrs params """
         plc = Place()
         plc.city_id = "999"
         plc.user_id = "101"
@@ -60,6 +64,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(plc.amenity_ids, ['5', '7', '8'])
 
     def testing_to_dict_method(self):
+        """ Testing the to_dict() method """
         plc = Place()
         plc.city_id = "845"
         plc.user_id = "8954"
@@ -72,6 +77,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(plcDict["name"], "Two-story House")
 
     def test_BM_inheritance(self):
+        """ Testing inheritance from BaseModel """
         self.assertTrue(issubclass(Place, BaseModel))
 
 
