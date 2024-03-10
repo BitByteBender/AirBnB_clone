@@ -14,7 +14,7 @@ import datetime
 
 
 class TestBaseModel_Init(unittest.TestCase):
-    def test_attributes(self):
+    def testing_attributes(self):
         model = BaseModel()
         self.assertIsInstance(model.id, str)
         self.assertTrue(hasattr(model, 'id'))
@@ -25,7 +25,7 @@ class TestBaseModel_Init(unittest.TestCase):
 
 
 class TestBaseModel_Dict(unittest.TestCase):
-    def test_to_dict(self):
+    def testing_to_dict(self):
         model = BaseModel()
         model_dict = model.to_dict()
         self.assertTrue(isinstance(model_dict, dict))
@@ -37,6 +37,35 @@ class TestBaseModel_Dict(unittest.TestCase):
         self.assertIsInstance(model_dict['id'], str)
         self.assertIsInstance(model_dict['created_at'], str)
         self.assertIsInstance(model_dict['updated_at'], str)
+
+
+class TestBaseModel_Core(unittest.TestCase):
+    def testing_instance_creation(self):
+        md = BaseModel()
+        self.assertIsInstance(md, BaseModel)
+
+    def testing_id_generation(self):
+        md1 = BaseModel()
+        md2 = BaseModel()
+        self.assertNotEqual(md1.id, md2.id)
+
+    def testing_created_at(self):
+        md = BaseModel()
+        self.assertIsInstance(md.created_at, datetime.datetime)
+
+    def testing_updated_at(self):
+        md = BaseModel()
+        self.assertIsInstance(md.updated_at, datetime.datetime)
+
+    def testing_str_repr(self):
+        md = BaseModel()
+        self.assertTrue("[BaseModel]" in str(md))
+
+    def testing_save_method(self):
+        md = BaseModel()
+        current_updated_at = md.updated_at
+        md.save()
+        self.assertNotEqual(current_updated_at, md.updated_at)
 
 
 if (__name__ == "__main__"):
