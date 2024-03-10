@@ -4,6 +4,11 @@ import cmd
 import sys
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -124,7 +129,8 @@ class HBNBCommand(cmd.Cmd):
         if (not argValue):
             print("** class name missing **")
             return (False)
-        if (argValue[0] not in ['BaseModel', 'User']):
+        if (argValue[0] not in ["BaseModel", "User",
+           "State", "City", "Amenity", "Place", "Review"]):
             print("** class doesn't exist **")
             return (False)
         if (len(argValue) < argCount):
@@ -149,13 +155,15 @@ class HBNBCommand(cmd.Cmd):
         if not self.isValid(argV, 1):
             return
 
-        if argV[0] == "BaseModel":
-            newModel = BaseModel()
-        elif argV[0] == "User":
-            newModel = User()
-        else:
+        cls = {"BaseModel": BaseModel, "User": User, "State": State,
+               "Amenity": Amenity, "Place": Place, "Review": Review}
+        cls_name = argV[0]
+
+        if cls_name not in cls:
             print("** class doesn't exist **")
             return
+
+        newModel = cls[cls_name]()
         newModel.save()
         print(newModel.id)
 
@@ -205,14 +213,17 @@ class HBNBCommand(cmd.Cmd):
         """
         objDict = storage.all()
         if not argValue:
-            print([str(obj) for obj in objDict.v()])
+            print([str(obj) for obj in objDict.values()])
             return
-        if argValue not in ["BaseModel", "User"]:
+
+        cls_name = argValue.split()[0]
+        if cls_name not in ["BaseModel", "User", "State", "City",
+           "Amenity", "Place", "Review"]:
             print("** class doesn't exist **")
             return
 
         print([str(obj) for objK, obj in objDict.items()
-               if argValue in objK])
+               if cls_name in objK])
 
     def do_update(self, argValue):
         """
