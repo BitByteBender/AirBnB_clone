@@ -6,7 +6,10 @@ from models.user import User
 
 
 class TestUser(unittest.TestCase):
+    """ Testing usecase for User class """
+
     def testing_attrs(self):
+        """ Testing all required attrs for User class """
         usr = User()
         self.assertTrue(hasattr(usr, 'email'))
         self.assertTrue(hasattr(usr, 'password'))
@@ -14,6 +17,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(hasattr(usr, 'last_name'))
 
     def testing_attr_vals(self):
+        """ Testing dflt values of attrs """
         usr = User()
         self.assertEqual(usr.email, "")
         self.assertEqual(usr.password, "")
@@ -21,6 +25,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(usr.last_name, "")
 
     def testing_attrs_params(self):
+        """ Testing attributes params """
         usr = User()
         usr.email = "madskillz.oneofone@google.com"
         usr.password = "tester101"
@@ -32,6 +37,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(usr.last_name, "Ataafi")
 
     def testing_to_dict_method(self):
+        """ Testing the to_dict() method """
         usr = User()
         usr.email = "madskillz.oneofone@google.com"
         usr.password = "notgonnalikeit123"
@@ -46,6 +52,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(usrDict['last_name'], "Cleve")
 
     def testing_BM_inheritance(self):
+        """ Testing the inheritance from BaseModel class """
         self.assertTrue(issubclass(User, BaseModel))
 
 

@@ -14,6 +14,7 @@ import datetime
 
 
 class TestBaseModel_Init(unittest.TestCase):
+    """ Unittesting Base Class """
     def testing_attributes(self):
         model = BaseModel()
         self.assertIsInstance(model.id, str)
@@ -25,6 +26,7 @@ class TestBaseModel_Init(unittest.TestCase):
 
 
 class TestBaseModel_Dict(unittest.TestCase):
+    """ Unittesting to_dict() method """
     def testing_to_dict(self):
         model = BaseModel()
         model_dict = model.to_dict()
@@ -40,6 +42,7 @@ class TestBaseModel_Dict(unittest.TestCase):
 
 
 class TestBaseModel_Core(unittest.TestCase):
+    """ Unittesting core functionality of BaseModel """
     def testing_instance_creation(self):
         md = BaseModel()
         self.assertIsInstance(md, BaseModel)

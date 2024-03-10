@@ -9,6 +9,7 @@ from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
+    """ Unittesting core functionality of FileStorage """
     def setUp(self):
         self.storage = FileStorage()
 
@@ -51,6 +52,9 @@ class TestFileStorage(unittest.TestCase):
             os.remove("file.json")
         except IOError:
             pass
+
+    def testing_inheritance(self):
+        self.assertTrue(self.storage, FileStorage)
 
 
 if __name__ == "__main__":
