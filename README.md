@@ -9,7 +9,7 @@ Allowing users to manage all functionalities through the CLI
 ### Main interface for interacting with AirBnb application
 
 ## Starting the Command Interpreter
-Run `./console.py`
+run `./console.py`
 
 ## Using The CLI
 * To create a new object -> (hbnb) create User
@@ -20,6 +20,6 @@ Run `./console.py`
 * End of file (EOF) -> hit (CTRL+d) or (hbnb) EOF
 * To get help -> (hbnb) help command
 
-## All commands are explained through the console just type help and you will find the functional commands
-To use the `help` -> help "type the command here"
-example: `help quit`
+All commands are explained through the console just type `help` and you will find the functional commands
+To use the `help` -> help "type the command here".  
+Example: `help quit`
