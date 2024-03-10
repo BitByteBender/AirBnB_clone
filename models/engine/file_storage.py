@@ -43,14 +43,21 @@ class FileStorage:
         try:
             from models.base_model import BaseModel
             from models.user import User
+            from models.state import State
+            from models.city import City
+            from models.amenity import Amenity
+            from models.place import Place
+            from models.review import Review
+
+            cls = {"BaseModel": BaseModel, "User": User, "State": State,
+                   "Amenity": Amenity, "Place": Place, "Review": Review}
+
             with open(self.__file_path, mode='r', encoding="utf-8") as file:
                 serializeObjs = json.load(file)
                 for k, val in serializeObjs.items():
                     cls_name, objId = k.split('.')
-                    if cls_name == 'User':
-                        obj = User(**val)
-                    else:
-                        obj = BaseModel(**val)
+                    objDict = val
+                    obj = cls[cls_name](**objDict)
                     self.__objects[k] = obj
         except FileNotFoundError:
             pass
