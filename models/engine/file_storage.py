@@ -24,7 +24,7 @@ class FileStorage:
 
     def save(self):
         """
-        serializes objs to JSON file path: _file_path)
+        serializes objs to JSON file path: (_file_path)
         """
         serializeObjs = {}
         for k, v in self.__objects.items():
