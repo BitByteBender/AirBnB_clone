@@ -1,1 +1,1 @@
-The front-end
+The trinity front-end
