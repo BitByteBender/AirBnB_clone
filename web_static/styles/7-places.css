@@ -1,35 +1,129 @@
-.places{
-    border: 0;
+.places {
     display: flex;
     flex-direction: column;
     padding-left: 30px;
 }
 
-.places h1, article h2{
+.places h1, article h2, article {
     font-size: 30px;
 }
 
-.title{
+.title {
     padding-top: 30px;
     margin-bottom: -25px;
 }
 
-.conts{
+.conts {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.places article{
+article {
     width: 390px;
-    padding: 20px;
     margin: 20px;
-    border: 1px solid #FF5A5F;
+    padding: 20px;
+    border: #FF5A5F solid 1px;
     border-radius: 4px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+    position: relative;
+    margin-bottom: 40px;
 }
 
+
 article h2 {
-    margin: -5px;
+    margin-top: -1px;
+    padding-left: 0%;
+}
+
+.artcl {
+    width: 100%;
+}
+
+.price_by_night {
+    position: absolute;
+    border: 4px solid #FF5A5F;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF5A5F;
+    right: 30px;
+    margin-top: -72.5px;
+}
+
+.dollar {
+font-size: 25px;
+font-weight: bold;
+}
+
+.information {
+    height: 80px;
+    border-top: solid #DDDDDD 1px;
+    border-bottom: solid #DDDDDD 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+    width: 100px;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gst_icon,
+.rm_icon,
+.btrm_icon {
+    height: inherit;
+    width: inherit;
+    background-repeat: no-repeat;
+    margin-left: 35px;
+}
+
+.gst_icon {
+    background-image: url("../images/icon_group.png");
+}
+
+.rm_icon {
+    background-image: url("../images/icon_bed.png");
+}
+
+.btrm_icon {
+    background-image: url("../images/icon_bath.png");
+}
+
+.gst_number h2,
+.rm_number h2,
+.btrm_number h2 {
+    font-size: 14px;
+    color: #484848;
+    font-weight: normal;
+}
+
+.user, .description {
+    font-size: 14px;
+text-align: left;
+
+}
+
+.user {
+    color: #484848;
+    margin-top: 15px;
+}
+
+.description {
+    margin-top: 7px;
+    margin-bottom: 0px;
 }
